@@ -66,8 +66,12 @@ echo "
 --vnc_console_proxy_url=http://$host_ip_entry:6080
 # network specific settings
 --network_manager=nova.network.manager.FlatDHCPManager
---public_interface=eth0
---flat_interface=eth1
+--dhcpbridge_flagfile=/etc/nova/nova.conf
+--firewall_driver=nova.virt.libvirt.firewall.IptablesFirewallDriver
+--my_ip=134.76.4.130
+--public_interface=br100
+--vlan_interface=eth0
+--flat_interface=eth0
 --flat_network_bridge=br100
 --fixed_range=$fixed_range
 --floating_range=$floating_range
@@ -88,7 +92,7 @@ nova-manage db sync
 ./openstack_restart_nova.sh
 
 # no clue why we have to do this when it's in the config?
-nova-manage network create private --fixed_range_v4=$fixed_range --num_networks=1 --bridge=br100 --bridge_interface=eth1 --network_size=$fixed_size
+nova-manage network create private --fixed_range_v4=$fixed_range --num_networks=1 --bridge=br100 --bridge_interface=eth0 --network_size=$fixed_size
 nova-manage floating create --ip_range=$floating_range
 
 # do we need this?
