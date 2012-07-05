@@ -18,11 +18,11 @@ cat > stackrc <<EOF
 export OS_TENANT_NAME=admin
 export OS_USERNAME=admin
 export OS_PASSWORD=$password
-export OS_AUTH_URL="http://134.76.4.130:5000/v2.0/" 
+export OS_AUTH_URL="http://127.0.0.1:5000/v2.0/" 
 export ADMIN_PASSWORD=$password
 export SERVICE_PASSWORD=$password
 export SERVICE_TOKEN=$token
-export SERVICE_ENDPOINT="http://134.76.4.130:35357/v2.0"
+export SERVICE_ENDPOINT="http://127.0.0.1:35357/v2.0"
 export SERVICE_TENANT_NAME=service
 EOF
 
@@ -35,7 +35,7 @@ sed -e "
 /^driver = keystone.catalog.backends.sql.Catalog/d
 /^\[catalog\]/a driver = keystone.catalog.backends.templated.TemplatedCatalog 
 /^\[catalog\]/a template_file = /etc/keystone/default_catalog.templates
-/^connection =.*$/s/^.*$/connection = mysql:\/\/keystone:$password@134.76.4.130\/keystone/
+/^connection =.*$/s/^.*$/connection = mysql:\/\/keystone:$password@127.0.0.1\/keystone/
 " -i /etc/keystone/keystone.conf
 
 # create db tables and restart
@@ -49,7 +49,7 @@ sleep 5
 ADMIN_PASSWORD=$password
 SERVICE_PASSWORD=$password
 export SERVICE_TOKEN=$token
-export SERVICE_ENDPOINT="http://134.76.4.130:35357/v2.0"
+export SERVICE_ENDPOINT="http://localhost:35357/v2.0"
 SERVICE_TENANT_NAME="service"
 
 function get_id () {
