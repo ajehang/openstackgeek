@@ -83,6 +83,11 @@ echo "
 --connection_type=libvirt
 --root_helper=sudo nova-rootwrap
 --verbose
+--novnc_enabled=true
+--novncproxy_base_url=http://134.76.4.130:6080/vnc_auto.html
+--vncserver_proxyclient_address=134.76.4.130
+--vncserver_listen=134.76.4.130
+
 " > /etc/nova/nova.conf
 
 # sync db
