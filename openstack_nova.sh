@@ -84,9 +84,9 @@ echo "
 --root_helper=sudo nova-rootwrap
 --verbose
 --novnc_enabled=true
---novncproxy_base_url=http://134.76.4.130:6080/vnc_auto.html
---vncserver_proxyclient_address=134.76.4.130
---vncserver_listen=134.76.4.130
+--novncproxy_base_url=http://$host_ip_entry:6080/vnc_auto.html
+--vncserver_proxyclient_address=$host_ip_entry
+--vncserver_listen=$host_ip_entry
 
 " > /etc/nova/nova.conf
 
