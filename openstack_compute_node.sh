@@ -10,4 +10,4 @@ fi
 apt-get install mysql-client
 
 #install nova network nova compute nova client
-apt-get install python-novaclient nova-network nova-compute
+apt-get install python-novaclient nova-compute
