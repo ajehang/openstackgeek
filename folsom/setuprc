@@ -1,0 +1,7 @@
+export SG_QUANTUM=0
+export SG_INSTALL_SWIFT=0
+export SG_MULTI_NODE=0
+export SG_SERVICE_EMAIL=ali.jehangiri@gmail.com
+export SG_SERVICE_PASSWORD=ali786
+export SG_SERVICE_TOKEN=22644f564f35cf11dd8dfa6085b5a9d2
+export SG_SERVICE_REGION=room

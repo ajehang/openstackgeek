@@ -81,7 +81,9 @@ then
 else
   wget http://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-i386-disk1.img
   mv precise-server-cloudimg-i386-disk1.img images
-  glance image-create --name "Ubuntu 12.04 LTS" --is-public true --container-format ovf --disk-format qcow2 --file images/precise-server-cloudimg-i386-disk1.img 
+#  images/precise-server-cloudimg-i386-disk1.img
+glance image-create --name "UbuntuLXC" --disk-format raw --container-format bare --is-public True --file images/precise-server-cloudimg-i386-disk1.img
+glance image-update UbuntuLXC --property hypervisor_type=lxc 
 fi
 
 echo "#################################################################################################"
